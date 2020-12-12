@@ -15,7 +15,6 @@ class Todo(db.Model):
 def index():
     incomplete = Todo.query.filter_by(completed=False)
     complete = Todo.query.filter_by(completed=True)
-    print(incomplete)
     return render_template("index.html", incomplete=incomplete, complete=complete)
 
 
