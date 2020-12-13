@@ -10,9 +10,31 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAM//MAEVKSQBHNjsAM/rIACOwjQBGRkYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmYWUVYRVlFWZhYWEkYWFhZmFhYTRhYWFmYWUVJGFlFWYRFmZkFWZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+  <!-- Favicon -->
+  <link
+    href="data:image/x-icon;base64,AAABAAEAEBAQAAAAAAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAM//MAEVKSQBHNjsAM/rIACOwjQBGRkYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmYWUVYRVlFWZhYWEkYWFhZmFhYTRhYWFmYWUVJGFlFWYRFmZkFWZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAA"
+    rel="icon" type="image/x-icon" />
 
-  <title>{% block title %}{% endblock %}</title>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="ToDo | DEMO site">
+  <meta name="description" content="Just funny test site. Its for demo purposes.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ferdamravenec.ddns.net/">
+  <meta property="og:title" content="ToDo | DEMO site">
+  <meta property="og:description" content="Just funny test site. It's for demo purposes.">
+  <meta property="og:image" content="https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8xOTgxNTY1NS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTYyNzc4MzYzNH0.SLTvCEiqi0IeS5SgewWiNpZFGN84FL7cyc-GaI0mF4A/img.jpg?width=1200&height=799">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ferdamravenec.ddns.net/">
+  <meta property="twitter:title" content="ToDo | DEMO site">
+  <meta property="twitter:description" content="Just funny test site. Its for demo purposes.">
+  <meta property="twitter:image" content="https://assets.rebelmouse.io/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8xOTgxNTY1NS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTYyNzc4MzYzNH0.SLTvCEiqi0IeS5SgewWiNpZFGN84FL7cyc-GaI0mF4A/img.jpg?width=1200&height=799">
+
+  <title>{% block title %}{% endblock %} | DEMO site</title>
 </head>
 
 <body>
@@ -32,7 +54,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
     crossorigin="anonymous"></script>
-    {% block script %}{% endblock %}
+  {% block script %}{% endblock %}
 </body>
 
 </html>
