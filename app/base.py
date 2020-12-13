@@ -6,9 +6,11 @@ from datetime import datetime
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200))
-    completed = db.Column(db.Boolean)
+    completed = db.Column(db.Boolean, default=False)
     created_date = db.Column(
         db.DateTime, nullable=False, default=datetime.utcnow)
+    update_date = db.Column(
+        db.DateTime, nullable=True)
 
 
 @app.route("/")
@@ -23,7 +25,7 @@ def index():
 @app.route("/add", methods=["POST"])
 def add():
     text = request.form["todoitem"]
-    todo = Todo(text=text, completed=False)
+    todo = Todo(text=text)
     db.session.add(todo)
     db.session.commit()
     return redirect(url_for("index"))
@@ -36,5 +38,7 @@ def update():
     for checked in checkedlist:
         todo = Todo.query.filter_by(id=int(checked)).first()
         todo.completed = True
+        todo.update_date = datetime.now()
+        print(type(todo.update_date))
         db.session.commit()
     return redirect(url_for("index"))

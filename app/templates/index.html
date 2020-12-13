@@ -28,7 +28,8 @@
         <div class="form-check">
             <input class="form-check-input" type="checkbox" name="checked" value="{{todo.id}}">
             <label class="form-check-label">
-                {{todo.text}}
+                {{todo.text}}<br>
+                {{todo.created_date.strftime("%d.%m.%Y")}}
             </label>
         </div>
         {% endfor %}
@@ -46,7 +47,8 @@
     <div class="form-check">
         <input class="form-check-input" type="checkbox" name="checkeddone" value="{{todo.id}}" disabled>
         <label class="form-check-label">
-            DONE: {{todo.text}}
+            {{todo.text}} <br>
+            DONE | {{todo.update_date.strftime("%d.%m.%Y, %H:%M:%S")}}	
         </label>
     </div>
     {% endfor %}
