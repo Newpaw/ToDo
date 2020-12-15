@@ -20,13 +20,13 @@
                 <label for="input todo item">Add a new todo item and hit ENTER:</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-8">
-                <textarea id="input todo item" type="text" class="form-control" placeholder="Write a todo item..."
-                    name="todoitem" rows="2" required> </textarea>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="submit" value="Enter" name="Enter"> ENTER </button>
             </div>
-            <div class="col"><button class="btn btn-primary" type="submit" value="Enter" name="Enter"> ENTER </button>
-            </div>
+            <textarea type="text" class="form-control" placeholder="Write a todo item..." aria-label="Submit" name="todoitem"
+                aria-describedby="basic-addon1" required></textarea>
         </div>
     </form>
 
@@ -57,7 +57,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {% for todo in complete %}
-            <button class="dropdown-item" type="button" disabled>DONE (
+            <button class="dropdown-item" type="button" value="{{todo.id}}" disabled>DONE (
                 {{todo.update_date.strftime("%d.%m.%Y, %H:%M:%S")}}) | {{todo.text}}
             </button>
             {% endfor %}
