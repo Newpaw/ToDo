@@ -17,9 +17,9 @@ class Todo(db.Model):
 def index():
     incomplete = Todo.query.filter_by(completed=False)
     complete = Todo.query.filter_by(completed=True)
+    count_complete = Todo.query.filter_by(completed=True).count()
     # for test if exist some incomplete task
-    exist = Todo.query.filter_by(completed=False).first()
-    return render_template("index.html", incomplete=incomplete, complete=complete, exist=exist)
+    return render_template("index.html", incomplete=incomplete, complete=complete, count_complete=count_complete)
 
 
 @app.route("/add", methods=["POST"])
