@@ -39,6 +39,5 @@ def update():
         todo = Todo.query.filter_by(id=int(checked)).first()
         todo.completed = True
         todo.update_date = datetime.now()
-        print(type(todo.update_date))
         db.session.commit()
     return redirect(url_for("index"))
