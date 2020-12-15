@@ -10,32 +10,39 @@
         <h1>ToDo</h1>
     </div>
     <hr>
-    <div class="row">
 
-        <form action="{{ url_for('add') }}" method="POST">
-            <div class="form-group">
+
+    <form action="{{ url_for('add') }}" method="POST">
+        <div class="row">
+            <div class="col-6">
                 <label for="input todo item">Add a new todo item and hit ENTER:</label>
-                <input id="input todo item" type="text" class="form-control" placeholder="Write a todo item..."
-                    name="todoitem">
             </div>
-        </form>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <input id="input todo item" type="text" class="form-control" placeholder="Write a todo item..."
+                    name="todoitem" required>
+            </div>
+            <div class="col"><button class="btn btn-primary" type="submit" value="Enter" name="Enter"> ENTER </button></div>
+        </div>
+    </form>
 
-    </div>
+
     <hr>
 
     <h2>Incomplete Items:</h2>
 
     {% for todo in incomplete %}
     <form action="{{ url_for('update') }}" method="POST">
-    <div class="jumbotron">
-        <p class="lead">{{todo.text}}</p>
-        <hr class="my-4">
-        <p>{{todo.created_date.strftime("%d.%m.%Y")}}</p>
+        <div class="jumbotron">
+            <p class="lead">{{todo.text}}</p>
+            <hr class="my-4">
+            <p>Created: {{todo.created_date.strftime("%d.%m.%Y")}}</p>
 
-        <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="done"> Done </button>
-        <!-- <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="update"> Update </button>
+            <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="done"> Done </button>
+            <!-- <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="update"> Update </button>
         <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="cancel"> Cancel </button> -->
-    </div>
+        </div>
     </form>
     {% endfor %}
 
