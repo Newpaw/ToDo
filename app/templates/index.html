@@ -15,7 +15,8 @@
         <form action="{{ url_for('add') }}" method="POST">
             <div class="form-group">
                 <label for="input todo item">Add a new todo item and hit ENTER:</label>
-                <input id="input todo item" type="text" class="form-control" placeholder="Write a todo item..." name="todoitem">
+                <input id="input todo item" type="text" class="form-control" placeholder="Write a todo item..."
+                    name="todoitem">
             </div>
         </form>
 
@@ -23,32 +24,35 @@
     <hr>
 
     <h2>Incomplete Items:</h2>
+
+    {% for todo in incomplete %}
     <form action="{{ url_for('update') }}" method="POST">
-        {% for todo in incomplete %}
-        <div class="form-check">
-            <input id="checkbox for not done items {{todo.id}}" class="form-check-input" type="checkbox" name="checked" value="{{todo.id}}">
-            <label for="checkbox for not done items {{todo.id}}" class="form-check-label">
-                {{todo.text}}<br>
-                {{todo.created_date.strftime("%d.%m.%Y")}}
-            </label>
-        </div>
-        {% endfor %}
-        {% if exist %}
-        
-        <button type="submit" class="btn btn-primary">Update</button>
-        {% endif %}
+    <div class="jumbotron">
+        <p class="lead">{{todo.text}}</p>
+        <hr class="my-4">
+        <p>{{todo.created_date.strftime("%d.%m.%Y")}}</p>
 
-
+        <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="done"> Done </button>
+        <!-- <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="update"> Update </button>
+        <button class="btn btn-primary" type="submit" value="{{todo.id}}" name="cancel"> Cancel </button> -->
+    </div>
     </form>
+    {% endfor %}
+
+
+
+
+
 
     <hr>
     <h2>Completed Items:</h2>
     {% for todo in complete %}
     <div class="form-check">
-        <input id="checkbox for done items {{todo.id}}" class="form-check-input" type="checkbox" name="checkeddone" value="{{todo.id}}" disabled>
-        <label for="checkbox for done items {{todo.id}}"class="form-check-label">
+        <input id="checkbox for done items {{todo.id}}" class="form-check-input" type="checkbox" name="checkeddone"
+            value="{{todo.id}}" disabled>
+        <label for="checkbox for done items {{todo.id}}" class="form-check-label">
             {{todo.text}} <br>
-            DONE | {{todo.update_date.strftime("%d.%m.%Y, %H:%M:%S")}}	
+            DONE | {{todo.update_date.strftime("%d.%m.%Y, %H:%M:%S")}}
         </label>
     </div>
     {% endfor %}

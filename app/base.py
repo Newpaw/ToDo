@@ -33,11 +33,21 @@ def add():
 
 @app.route("/update", methods=["POST"])
 def update():
-    checkedlist = request.form.getlist("checked")
-    # change the checked item in db to True
-    for checked in checkedlist:
-        todo = Todo.query.filter_by(id=int(checked)).first()
+    
+    req_done = request.form.getlist("done")
+    # req_update = request.form.getlist("update")
+    # req_cancel = request.form.getlist("cancel")
+
+    if req_done:
+        todo = Todo.query.filter_by(id=int(req_done[0])).first()
         todo.completed = True
         todo.update_date = datetime.now()
         db.session.commit()
+
+    # elif req_update:
+    #     print(req_update)
+    # else:
+    #     print(req_cancel)
+
+    
     return redirect(url_for("index"))
