@@ -8,7 +8,9 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>ToDo</h1>
+            <a href="/">
+                <h1>ToDo</h1>
+            </a>
         </div>
     </div>
     <hr>
@@ -23,10 +25,10 @@
 
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary" type="submit" value="Enter" name="Enter"> ENTER </button>
+                <button class="btn btn-primary btn-lg active" type="submit" name="Enter"> ENTER </button>
             </div>
-            <textarea type="text" class="form-control" placeholder="Write a todo item..." aria-label="Submit" name="todoitem"
-                aria-describedby="basic-addon1" required></textarea>
+            <textarea type="text" class="form-control" placeholder="Write a todo item..." aria-label="Submit"
+                name="todoitem" aria-describedby="basic-addon1" required></textarea>
         </div>
     </form>
 
@@ -50,11 +52,16 @@
     {% endfor %}
 
     <hr>
+
+    <!-- Show list of all done ToDo items -->
+
     <div class="btn-group dropup">
+
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Completed Items ({{count_complete}})
         </button>
+
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {% for todo in complete %}
             <button class="dropdown-item" type="button" value="{{todo.id}}" disabled>DONE (
