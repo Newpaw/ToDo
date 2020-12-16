@@ -1,6 +1,7 @@
 from app import app, db
 from flask import render_template, request, redirect, url_for
 from datetime import datetime
+from sqlalchemy import text
 
 
 class Todo(db.Model):
@@ -15,9 +16,11 @@ class Todo(db.Model):
 
 @app.route("/")
 def index():
-    incomplete = Todo.query.filter_by(completed=False)
-    complete = Todo.query.filter_by(completed=True)
+
+    incomplete = Todo.query.filter_by(completed=False).order_by(Todo.created_date.desc())    
+    complete = Todo.query.filter_by(completed=True).order_by(Todo.update_date.desc())
     count_complete = Todo.query.filter_by(completed=True).count()
+    
     # for test if exist some incomplete task
     return render_template("index.html", incomplete=incomplete, complete=complete, count_complete=count_complete)
 
